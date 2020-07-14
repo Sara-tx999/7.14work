@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天猫首页</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+    <div class="grid">
+        <div class="grid-bg">
+            <div class="grid-head">
+                <div class="grid-nav" id="today" style="background-color: #00B262;">
+                    今日疯抢
+                </div>
+                <div class="grid-nav" id="cheap">
+                    量贩装
+                </div>
+            </div>
+            <div class="grid-img" id="eat">
+                <a href="#">
+                    <img src="imgs/1.jpg">
+                </a>
+                <div class="onedisplay">
+                    <div class="textlist">
+                        <img src="https://img.alicdn.com/tfs/TB12RqQewMPMeJjy1XdXXasrXXa-23-23.png" alt="">
+                        <span>零食欢乐购</span>
+                        <div>
+                            <span class="textlist2">爆款直降</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="grid-img" id="oil" style="display: none;">
+                <a href="#">
+                    <img src="imgs/2.jpg">
+                </a>
+                <div class="onedisplay">
+                    <div class="textlist">
+                        <img src="https://img.alicdn.com/tfs/TB12RqQewMPMeJjy1XdXXasrXXa-23-23.png" alt="">
+                        <span>爆款直降</span>
+                        <div>
+                            <span class="textlist2">粮油调味</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var nav = document.querySelectorAll(".grid-nav");
+        var img = document.querySelectorAll(".grid-img");
+        console.log(nav);
+        console.log(img);
+
+        for (let i = 0; i < nav.length; i++) {
+            nav[i].onclick = function () {
+                for (var j = 0; j < nav.length; j++) {
+                    nav[j].style.background = 'rgb(241,241,241)';
+                    img[j].style.display = "none";
+                }
+                nav[i].style.background = "#00B262";
+                img[i].style.display = "block";
+            }
+        }
+
+        var y = 0;
+        setInterval(() => {
+            if (y) {
+                nav[0].style.background = "#00B262";
+                img[0].style.display = "block";
+                nav[1].style.background = 'rgb(241,241,241)';
+                img[1].style.display = "none";
+                y = false;
+            } else {
+                nav[1].style.background = "#00B262";
+                img[1].style.display = "block";
+                nav[0].style.background = 'rgb(241,241,241)';
+                img[0].style.display = "none";
+                y = true
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
